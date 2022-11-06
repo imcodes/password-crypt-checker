@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Encrypter</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Password hash generator</h1>
+        <h2 class="subtitle mb-1">This generates md5 hash of the entered password</h2>
+
+    <div class="col-wrapper">
+
+            <div class="col" id="col-left">
+                <p>Generate Password Hash</p>
+                <form action="" id="encrypt-form" class="encrypt-form mb-1" onsubmit="return encrypt()">
+                    <div class="input mb-1">
+                        <label for="hash-method" class="">Hash Method</label>
+                        <select id="hash-method" autocomplete="off" name="hashMethod" required aria-required="true" class="">
+                            <option value="md5">MD5</option>
+                            <option value="bcrypt">BCRYPT</option>
+                        </select>
+                    </div>
+                    <div class="input-wrapper">
+
+                        <div class="input">
+                            <input id="plain-text" autocomplete="off" name="plainText" required aria-required="true" class="form-input">
+                            <label for="plain-text" class="input-label">Password</label>
+                        </div>
+
+                        <input type="hidden" name="hash_string">
+                        <button class="btn" type="submit"  title="Generate Hash">Encrypt</button>
+                    </div>
+                </form>
+                <div id="hash-output" class="output"></div>
+            </div>
+
+
+            <div class="col" id="col-right">
+                <p>Verify Password Hash</p>
+                <form action="" id="verify-form" class="verify-form mb-1" onsubmit="return verify()">
+                    <div class="input mb-1">
+                        <label for="hash-method" class="">Hash Method</label>
+                        <select id="hash-method" autocomplete="off" name="hashMethod" required aria-required="true" class="">
+                            <option value="md5">MD5</option>
+                            <option value="bcrypt">BCRYPT</option>
+                        </select>
+                    </div>
+                    <div class="input mb-1">
+                        <input id="plaintext-input" name="plainText" required aria-required="true" autocomplete="off" class="form-input">
+                        <label for="plaintext-input" class="input-label">Enter Text</label>
+                    </div>
+                    <div class="input mb-1">
+                        <input id="hash-input" name="hashInput" required aria-required="true" autocomplete="off" class="form-input">
+                        <label for="hash-input" class="input-label">Enter Hash string</label>
+                    </div>
+
+                    <input type="hidden" name="compare_string">
+                    <button class="btn" type="submit" title="Verify Hash">Verify</button>
+                </form>
+                <div id="verify-output" class="output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
